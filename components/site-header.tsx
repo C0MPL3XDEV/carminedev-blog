@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { buttonVariants } from './ui/button';
 import { Icons } from './icons';
 import { MainNav } from './main-nav';
+import { MobileNav } from './mobile-nav';
 
 
 export function SiteHeader() {
@@ -14,7 +15,7 @@ export function SiteHeader() {
                 <nav className="flex items-center">
                     <Link href={siteConfig.links.github} target='_blank' rel='noreferrer'>
                         <div className={cn(buttonVariants({variant: "ghost"}), 
-                        "w-10 px-0"
+                        "w-10 px-0 hidden sm:inline-flex"
                         )}>
                             <Icons.gitHub className='h-4 w-4'></Icons.gitHub>
                             <span className="sr-only">GitHub</span>
@@ -22,7 +23,7 @@ export function SiteHeader() {
                     </Link>
                     <Link href={siteConfig.links.instagram} target='_blank' rel='noreferrer'>
                         <div className={cn(buttonVariants({variant: "ghost"}), 
-                        "w-10 px-0"
+                        "w-10 px-0 hidden sm:inline-flex"
                         )}>
                             <Icons.instagram className='h-4 w-4'></Icons.instagram>
                             <span className="sr-only">Instagram</span>
@@ -30,12 +31,13 @@ export function SiteHeader() {
                     </Link>
                     <Link href={siteConfig.links.blueSky} target='_blank' rel='noreferrer'>
                         <div className={cn(buttonVariants({variant: "ghost"}), 
-                        "w-10 px-0"
+                        "w-10 px-0 hidden sm:inline-flex"
                         )}>
                             <Icons.blueSky className='h-4 w-4'></Icons.blueSky>
                             <span className="sr-only">Instagram</span>
                         </div>
                     </Link>
+                    <MobileNav/>
                 </nav>
             </div>
         </div>
