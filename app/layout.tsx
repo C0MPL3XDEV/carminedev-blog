@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google"; // Import the Geist
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/site-header";
+import { Providers } from "@/components/providers";
 
 const inter = Inter({ // Inter UI font
   subsets: ["latin"], // Include the Latin subset
@@ -34,10 +35,12 @@ export default function RootLayout({
       <body
         className={cn("min-h-screen bg-background font-sans antialiased", inter.variable)} // Set the font to Inter UI
       >
+        <Providers>
         <div className="relative flex min-h-dvh flex-col bg-background">
           <SiteHeader />
           <main className="flex-1">{children}</main>
         </div>
+        </Providers>
       </body>
     </html>
   );
