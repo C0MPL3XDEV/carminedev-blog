@@ -1,0 +1,42 @@
+---
+title: Incremental Static Regeneration (ISR) in Next.js
+description: Scopri come utilizzare l'Incremental Static Regeneration (ISR) in Next.js per generare pagine statiche dinamiche.
+date: 2024-12-31
+published: true
+---
+
+L'ISR combina i vantaggi delle pagine statiche con la dinamicità delle pagine renderizzate lato server.
+
+## Configurazione
+
+ISR si configura con la proprietà `revalidate` in `getStaticProps`:
+
+```ts
+export async function getStaticProps() {
+  const data = await fetchData();
+
+  return {
+    props: { data },
+    revalidate: 60, // Rigenera ogni 60 secondi
+  };
+}
+```
+
+## Esempio completo
+
+```tsx
+export default function Page({ data }) {
+  return <h1>{data}</h1>;
+}
+
+export async function getStaticProps() {
+  const data = await fetch('https://api.example.com/data').then(res => res.json());
+
+  return {
+    props: { data },
+    revalidate: 10,
+  };
+}
+```
+
+ISR è ideale per contenuti semi-dinamici come post di blog o cataloghi di prodotti.

@@ -1,0 +1,64 @@
+---
+title: Tailwind CSS con Next.js
+description: Scopri come utilizzare Tailwind CSS con Next.js per creare design moderni e responsivi in modo rapido.
+date: 2024-12-29
+published: true
+---
+
+
+Tailwind CSS è una libreria CSS utility-first che permette di creare design moderni e responsivi in modo rapido.
+
+## Installazione
+
+1. Installa le dipendenze:
+
+```bash
+npm install tailwindcss postcss autoprefixer
+```
+
+2. Inizializza il file di configurazione:
+
+```bash
+npx tailwindcss init
+```
+
+3. Configura `postcss.config.js`:
+
+```js
+module.exports = {
+  plugins: [
+    'tailwindcss',
+    'autoprefixer',
+  ],
+};
+```
+
+4. Importa Tailwind nel file globale CSS:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+5. Configura il file `tailwind.config.js` per gestire il purge:
+
+```js
+module.exports = {
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+## Esempio di utilizzo
+
+```tsx
+export default function Button() {
+  return <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Click me!</button>;
+}
+```
+
+Tailwind CSS semplifica la scrittura di CSS e aumenta la produttività dei team di sviluppo. Provalo in un progetto Next.js e scopri quanto sia facile creare design moderni e responsivi!

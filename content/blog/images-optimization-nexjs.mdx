@@ -1,0 +1,45 @@
+---
+title: Ottimizzazione delle immagini in Next.js
+description: Scopri come ottimizzare le immagini in Next.js per migliorare le prestazioni del sito web.
+date: 2024-12-31
+published: true
+---
+
+Next.js offre il componente `Image` per ottimizzare le immagini senza configurazioni aggiuntive.
+
+## Vantaggi principali
+
+1. **Ridimensionamento automatico**: Regola le dimensioni delle immagini in base al dispositivo.
+2. **Lazy loading**: Carica le immagini solo quando sono visibili nella viewport.
+3. **Supporto WebP**: Riduce la dimensione delle immagini per migliorare le prestazioni.
+
+## Utilizzo base
+
+```tsx
+import Image from 'next/image';
+
+export default function Home() {
+  return (
+    <Image
+      src="/example.jpg"
+      alt="Example"
+      width={500}
+      height={300}
+    />
+  );
+}
+```
+
+## Configurazione di domini esterni
+
+Se le immagini provengono da un CDN, aggiorna `next.config.js`:
+
+```js
+module.exports = {
+  images: {
+    domains: ['cdn.example.com'],
+  },
+};
+```
+
+Con il componente `Image`, è possibile ottimizzare facilmente l'esperienza visiva degli utenti.

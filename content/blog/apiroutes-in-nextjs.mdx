@@ -1,0 +1,56 @@
+---
+title: API Routes in Next.js
+description: Scopri come creare API Routes in Next.js per gestire le richieste HTTP direttamente nell'applicazione.
+date: 2024-12-31
+published: true
+---
+
+Le API Routes in Next.js offrono un modo semplice per creare backend leggeri direttamente nell'applicazione.
+
+## Come funzionano
+
+1. Le API Routes sono gestite all'interno della directory `pages/api`.
+2. Ogni file in questa directory corrisponde a un endpoint.
+3. Next.js gestisce automaticamente il routing e la gestione delle richieste HTTP.
+
+### Esempio base
+
+Crea un file `pages/api/hello.ts`:
+
+```ts
+export default function handler(req, res) {
+  res.status(200).json({ message: 'Hello from API!' });
+}
+```
+
+Puoi testare l'endpoint navigando su `http://localhost:3000/api/hello`.
+
+## Gestione di metodi HTTP
+
+```ts
+export default function handler(req, res) {
+  if (req.method === 'POST') {
+    res.status(200).json({ message: 'Data saved!' });
+  } else {
+    res.status(405).json({ error: 'Method not allowed' });
+  }
+}
+```
+
+## Connessione con il frontend
+
+Esempio di fetch API:
+
+```tsx
+export default function Home() {
+  const fetchData = async () => {
+    const res = await fetch('/api/hello');
+    const data = await res.json();
+    console.log(data);
+  };
+
+  return <button onClick={fetchData}>Fetch Data</button>;
+}
+```
+
+Con Next.js, creare API Routes è semplice e scalabile. Provalo nel tuo prossimo progetto!
