@@ -17,7 +17,7 @@ export default function Home() {
             Hello, I&apos;m{" "}
             <Typewriter
               words={["Carmine", "a Full Stack Web Dev", "a CS Student"]}
-              loop={5}
+              loop={Infinity}
               cursor
               cursorStyle="_"
               cursorBlinking
